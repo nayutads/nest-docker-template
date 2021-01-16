@@ -1,0 +1,13 @@
+version: '3'
+services:
+  nest_app:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+    image: nestjsapp
+    container_name: nestjsapp
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/src
+    command: [sh, -c, yarn && yarn start]
